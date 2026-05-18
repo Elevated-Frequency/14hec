@@ -75,6 +75,29 @@ describe('DashboardHeader', () => {
     })
   })
 
+  describe('no results feedback', () => {
+    it('shows a "No plants found" status message when search is non-empty with no matches', () => {
+      renderHeader({ search: 'zzzzz', filteredPlants: [] })
+      const status = screen.getByRole('status')
+      expect(status).toHaveTextContent(/no plants found/i)
+    })
+
+    it('does not show the no-results message when search is empty', () => {
+      renderHeader({ search: '', filteredPlants: [] })
+      expect(screen.queryByRole('status')).not.toBeInTheDocument()
+    })
+
+    it('does not show the no-results message when there are matches', () => {
+      renderHeader({ search: 'yar', filteredPlants: mockPlants })
+      expect(screen.queryByRole('status')).not.toBeInTheDocument()
+    })
+
+    it('keeps aria-expanded false when there are no results', () => {
+      renderHeader({ search: 'zzzzz', filteredPlants: [] })
+      expect(screen.getByRole('combobox')).toHaveAttribute('aria-expanded', 'false')
+    })
+  })
+
   describe('keyboard navigation', () => {
     it('ArrowDown moves active descendant to first option', async () => {
       const user = userEvent.setup()
