@@ -92,9 +92,9 @@ describe('DashboardHeader', () => {
       expect(screen.queryByRole('status')).not.toBeInTheDocument()
     })
 
-    it('keeps aria-expanded false when there are no results', () => {
+    it('sets aria-expanded true when the no-results listbox is visible', () => {
       renderHeader({ search: 'zzzzz', filteredPlants: [] })
-      expect(screen.getByRole('combobox')).toHaveAttribute('aria-expanded', 'false')
+      expect(screen.getByRole('combobox')).toHaveAttribute('aria-expanded', 'true')
     })
   })
 

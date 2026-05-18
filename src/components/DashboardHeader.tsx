@@ -27,7 +27,9 @@ export default function DashboardHeader({
   const [activeIndex, setActiveIndex] = useState(-1)
 
   const visiblePlants = filteredPlants.slice(0, 5)
-  const isOpen = search.length > 0 && visiblePlants.length > 0
+  const hasResults = visiblePlants.length > 0
+  const noResults = search.length > 0 && !hasResults
+  const isOpen = search.length > 0 && hasResults
 
   function handleKeyDown(e: React.KeyboardEvent) {
     if (!isOpen) {
@@ -100,7 +102,7 @@ export default function DashboardHeader({
           placeholder="Search plants, ailments, or conditions..."
           aria-label="Search plants, ailments, or conditions"
           role="combobox"
-          aria-expanded={isOpen}
+          aria-expanded={isOpen || noResults}
           aria-controls={LISTBOX_ID}
           aria-activedescendant={activeDescendant}
           aria-autocomplete="list"
@@ -136,9 +138,16 @@ export default function DashboardHeader({
             ))}
           </div>
         )}
-        {search.length > 0 && visiblePlants.length === 0 && (
-          <div role="status" className="mt-2 px-5 py-3 text-sm text-earth-400">
-            No plants found for &ldquo;{search}&rdquo;
+        {noResults && (
+          <div
+            id={LISTBOX_ID}
+            role="listbox"
+            aria-label="Search results"
+            className="absolute top-full left-0 right-0 mt-2 bg-glass-dense rounded-2xl overflow-hidden shadow-depth-xl z-20 animate-fade-in-down border-2 border-white/10"
+          >
+            <div role="status" className="px-5 py-3 text-sm text-earth-400">
+              No plants found for &ldquo;{search}&rdquo;
+            </div>
           </div>
         )}
       </div>
