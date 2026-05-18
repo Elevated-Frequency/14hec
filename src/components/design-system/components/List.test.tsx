@@ -15,7 +15,7 @@ function TestRow(item: TestItem) {
 }
 
 describe('List', () => {
-  it('renders all items using the renderItem function', () => {
+  it('renders as a semantic list with list items', () => {
     const items: TestItem[] = [
       { id: 1, to: '/a', label: 'Alpha' },
       { id: 2, to: '/b', label: 'Beta' },
@@ -26,6 +26,12 @@ describe('List', () => {
         <List items={items} renderItem={TestRow} />
       </MemoryRouter>
     )
+
+    const list = screen.getByRole('list')
+    expect(list).toBeInTheDocument()
+
+    const listItems = screen.getAllByRole('listitem')
+    expect(listItems).toHaveLength(2)
 
     expect(screen.getByText('Alpha')).toBeInTheDocument()
     expect(screen.getByText('Beta')).toBeInTheDocument()

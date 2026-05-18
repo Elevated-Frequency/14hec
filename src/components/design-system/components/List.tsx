@@ -18,11 +18,11 @@ export function List<T extends ListItemViewModel>({
   keyOf = (item) => item.id,
 }: ListProps<T>) {
   return (
-    <div className="space-y-1">
+    <ul className="space-y-1 list-none" role="list">
       {items.map((item) => (
         <Fragment key={keyOf(item)}>{renderItem(item)}</Fragment>
       ))}
-    </div>
+    </ul>
   )
 }
 
@@ -34,13 +34,15 @@ interface ListItemProps {
 
 export function ListItem({ to, children, trailing }: ListItemProps) {
   return (
-    <Link to={to} className="block py-2 pr-3 group">
-      <div className="flex justify-between items-center">
-        <span className="text-sm text-earth-100 group-hover:text-botanical-400 transition-colors">
-          {children}
-        </span>
-        {trailing}
-      </div>
-    </Link>
+    <li>
+      <Link to={to} className="block py-2 pr-3 group">
+        <div className="flex justify-between items-center">
+          <span className="text-sm text-earth-100 group-hover:text-botanical-400 transition-colors">
+            {children}
+          </span>
+          {trailing}
+        </div>
+      </Link>
+    </li>
   )
 }
