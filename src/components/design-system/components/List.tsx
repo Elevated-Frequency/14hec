@@ -35,9 +35,9 @@ interface ListItemProps {
 export function ListItem({ to, children, trailing }: ListItemProps) {
   return (
     <li>
-      <Link to={to} className="block py-2 pr-3 group">
+      <Link to={to} className="block py-2 pr-3 group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-botanical-400">
         <div className="flex justify-between items-center">
-          <span className="text-sm text-earth-100 group-hover:text-botanical-400 transition-colors">
+          <span className="text-sm text-earth-100 group-hover:text-botanical-400 group-focus-visible:text-botanical-400 transition-colors">
             {children}
           </span>
           {trailing}
