@@ -186,6 +186,13 @@ interactive element, visible focus indicators, sufficient color
 contrast, alt text on meaningful imagery, and form controls with real
 labels. When in doubt, run the `/my-accessibility-audit` skill.
 
+**Prefer semantic elements everywhere you can.** Use `<ul>`/`<ol>` + `<li>`
+for lists, `<nav>` for navigation, `<section>` with a heading or
+`aria-label` for content regions, `<button>` for actions, `<a>` for
+navigation. Reach for ARIA roles and attributes only when no native HTML
+element conveys the semantics. A `<div>` or `<span>` with a role bolted
+on is always a last resort.
+
 ## Testing & TDD
 
 We use **Vitest + React Testing Library**. TDD is the default workflow —
