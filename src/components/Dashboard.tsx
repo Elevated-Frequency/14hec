@@ -195,7 +195,7 @@ export default function Dashboard() {
       {/* Quick Access Lists */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <Type.Subheading className="mb-3">
+          <Type.Subheading as="h2" className="mb-3">
             {recentPlants.length > 0 ? 'Recent Plants' : 'Featured Plants'}
           </Type.Subheading>
           <List
@@ -204,7 +204,7 @@ export default function Dashboard() {
           />
         </div>
         <div>
-          <Type.Subheading className="mb-3">Common Ailments</Type.Subheading>
+          <Type.Subheading as="h2" className="mb-3">Common Ailments</Type.Subheading>
           <List
             items={ailments.slice(0, 5).map(toAilmentListItem)}
             renderItem={AilmentListItemRow}

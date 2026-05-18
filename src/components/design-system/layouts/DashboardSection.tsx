@@ -14,7 +14,7 @@ export function DashboardSection({ title, columns = 2, children }: DashboardSect
   const Wrapper = title ? 'section' : 'div'
   return (
     <Wrapper className="mb-8">
-      {title && <Type.Subheading className="mb-3">{title}</Type.Subheading>}
+      {title && <Type.Subheading as="h2" className="mb-3">{title}</Type.Subheading>}
       <div className={`grid ${gridCols} gap-3`}>
         {children}
       </div>
