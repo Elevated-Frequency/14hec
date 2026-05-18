@@ -79,7 +79,7 @@ export default function DashboardHeader({
 
       <div className="relative">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-1 h-12 rounded-full bg-gradient-to-b from-botanical-300 to-celestial-200" />
+          <div aria-hidden="true" className="w-1 h-12 rounded-full bg-gradient-to-b from-botanical-300 to-celestial-200" />
           <div>
             <Type.Branded.Display className="text-gradient-botanical">
               14 HEC Plant Intelligence
@@ -134,6 +134,11 @@ export default function DashboardHeader({
                 <Badge variant={plant.category}>{plant.category}</Badge>
               </div>
             ))}
+          </div>
+        )}
+        {search.length > 0 && visiblePlants.length === 0 && (
+          <div role="status" className="mt-2 px-5 py-3 text-sm text-earth-400">
+            No plants found for &ldquo;{search}&rdquo;
           </div>
         )}
       </div>
