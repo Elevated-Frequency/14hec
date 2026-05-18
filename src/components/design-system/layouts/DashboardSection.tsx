@@ -11,12 +11,13 @@ export function DashboardSection({ title, columns = 2, children }: DashboardSect
   const gridCols = columns === 3
     ? 'grid-cols-1 sm:grid-cols-3'
     : 'grid-cols-1 sm:grid-cols-2'
+  const Wrapper = title ? 'section' : 'div'
   return (
-    <section className="mb-8">
+    <Wrapper className="mb-8">
       {title && <Type.Subheading className="mb-3">{title}</Type.Subheading>}
       <div className={`grid ${gridCols} gap-3`}>
         {children}
       </div>
-    </section>
+    </Wrapper>
   )
 }
