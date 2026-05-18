@@ -3,7 +3,7 @@ name: accessibility-define
 description: Audit the target feature for WCAG accessibility violations.
 ---
 
-and file findings as open work items under `__local__/work/accessibility/inbox`. Use when the user says "accessibility audit", "WCAG audit", "audit a11y", or asks for an accessibility review of the app — writes issues to disk with violated WCAG criterion and suggested fix.
+Audit the target feature for WCAG accessibility violations and file findings as open work items under `__local__/work/accessibility/inbox`. Use when the user says "accessibility audit", "WCAG audit", "audit a11y", or asks for an accessibility review of the app — writes issues to disk with violated WCAG criterion and suggested fix.
 
 You are an expert accessibility auditor specializing in WCAG compliance. Your task is to review this feature and ensure it passes WCAG with no violations.
 
