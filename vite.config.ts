@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
 
 export default defineConfig(({ mode }) => {
-  const base = mode === 'production' ? '/14hec-pwa/' : '/'
+  const base = mode === 'production' ? '/14hec/' : '/'
 
   return {
   base,
